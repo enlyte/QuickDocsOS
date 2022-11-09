@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <title>Quick Docs</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cabin|Quicksand|Roboto|Varela+Round" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- <form class="form-horizontal" autocomplete="off"> -->
+      <!-- <fieldset> -->
+      <div class="container">
+
+        <img src="img/siteLogo.jpg" width="200px" height="auto">
+
+        <br/><br/>
+
+
+<!-- Search Bar -->
+<div class="input-group pull-right col-md-5" style="width: 50%">
+  <span class="input-group-addon" id="basic-addon1"></span>
+  <input type="text" name="search" id="search" class="search-input form-control" placeholder="Search for a Doc" aria-describedby="basic-addon1">
+</div>
+
+</div>
+<!-- Show All button -->
+</br>
+<div class="input-group pull-right col-md-5" style="width: 50%">
+  <button type="button" id="showAllButton" name="showAllButton" onclick="clearSearchField();" class="btn btn-primary blueButton">Clear</button>
+</div>
+
+
+<br/>
+<legend id="search-legend" style="display: none"><h2 class="blueHeading" id="search-legend">Search Results</h2></legend>
+
+<!-- <div class="search-list-group" id="search-list-group"></div> -->
+
+<div class="panel panel-default" id="search-table-panel" style="margin-left: 1cm; margin-right: 1cm; display: none;">
+  <table class="table table-striped custab table-filter" id="search-list-group"  >
+
+  </table>
+</div>
+
+<!-- Links -->
+
+
+<!-- /////////////////////////////// -->
+<!-- ///  Your IndexedDB Links ///// -->
+<!-- /////////////////////////////// -->
+
+<!-- <br/><legend><h2 class="blueHeading">Your Docs</h2></legend>
+<button data-toggle="modal"  href="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+Add Doc</button>
+<br/><br/>
+<div class="list-group" id="list-group"></div> -->
+
+<!--
+<br/>
+<legend><h2 class="blueHeading">SE Resources</h2></legend>
+<div class="list-group1" id="se-list-group"></div>
+
+
+<br/><legend><h2 class="blueHeading">Resources</h2></legend>
+<div class="list-group" id="resources-list-group"></div>
+<br/>
+
+<legend><h2 class="blueHeading">Getting Started</h2></legend>
+<div class="list-group" id="getting-started-list-group"></div>
+<br/> -->
+
+
+<!-- /////////////////////////////// -->
+<!-- ///     Database Group         ///// -->
+<!-- ///////////////////////////////// -->
+
+<legend><h2 class="blueHeading">Quick Docs</h2></legend>
+<!-- <div> -->
+<button data-toggle="modal"  href="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  Add Doc</button>
+
+<br/>
+<!--
+  <div class="doc-list" id="doc-list">
+    <a href="" class="list-group-item">
+      <h4 class="list-group-item-heading">Doc Title</h4>
+      <p class="list-group-item-text">Doc Info</p>
+    </a>
+  </div> -->
+
+  <!-- </div> -->
+</br></br>
+  <div class="panel panel-default" style="margin-left: 1cm; margin-right: 1cm;">
+		<table class="table table-striped custab table-filter" id="doc-table"  >
+			<!-- <thead>
+					<tr data-status="head">
+							<th>Product</th>
+							<th>Category</th>
+							<th>Type</th>
+							<th>Deployment</th>
+					</tr>
+			</thead> -->
+    </table>
+  </div>
+
+
+</br></br>
+
+<!-- Include Quill stylesheet -->
+<!-- <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet"> -->
+
+<!-- Create the toolbar container -->
+<!-- <div id="toolbar"> -->
+  <!-- <button class="ql-bold">Bold</button>
+  <button class="ql-italic">Italic</button> -->
+<!-- </div> -->
+
+<!-- Create the editor container -->
+<!-- <div id="editor">
+  <p>Hello World!</p>
+</div> -->
+
+<!-- Include the Quill library -->
+<!-- <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script> -->
+<!-- <script src="node_modules/quill/quill.js"></script> -->
+
+
+
+
+<!-- </div> -->
+</div>  <!-- Row -->
+</div>  <!-- Container -->
+
+
+
+<!--                     MODAL  -->
+<!-- <div class="container">
+  <div class="row"> -->
+
+    <!--                     MODAL CREATE  -->
+    <div id="myModal" class="modal fade in">
+      <!-- modal -->
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+          <div class="modal-body">
+            <h2 class="modal-title blueHeading center" id="modal-title">Add Doc</h2>
+            <h4  id="modal-category" class="center"> </h4>
+
+            <h4 class="blueHeading" id="title">Title/Topic</h4>
+            <input id="doc-title"  class="form-control" type="text" placeholder="Enter a Title/Topic..." />
+
+
+            <h4 class="blueHeading" id="information">Information</h4>
+
+            <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+            <div id="doc-information" style= "font-size: 14px" >
+              <!-- <p>Hello World!</p> -->
+            </div>
+            <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+            <!-- <textarea class="form-control" id="doc-information" name="doc-information" cols="40" rows="5" placeholder="Enter Information..."></textarea> -->
+
+            <h4 class="blueHeading" id="Hyperlink">Link - More Info (Optional)</h4>
+            <input id="hyperlink"  class="form-control" type="text" placeholder="http://www.hyperlink.com" />
+            <!-- <br/> -->
+
+            <!-- <textarea class="form-control field span12" id="textarea" rows="6" placeholder="Enter a short synopsis"></textarea> -->
+            <br/>
+            <!-- <a class="btn btn-primary pull-right" onclick="preAddThis()" data-dismiss="modal">Submit</a> -->
+            <a class="btn btn-primary pull-right" onclick="preAddToDB()">Submit</a>
+            <br/>
+            <br/>
+
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dalog -->
+    </div><!-- /.modal -->
+
+
+
+    <div id="selected-modal" class="modal fade in">
+      <!-- modal -->
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+          <div class="modal-body">
+            <h1 class="selected-modal-title blueHeading center" id="selected-modal-title"></h1>
+
+            <!-- <h2 class="selected-modal-title blueHeading center" id="selected-modal-title2"></h2> -->
+
+            <h4  id="selected-modal-category" class="center"> </h4>
+
+            <!-- <h4 class="blueHeading" id="title">Title/Topic</h4>
+            <input id="doc-title"  class="form-control" type="text" placeholder="Enter a Title/Topic..." /> -->
+
+
+            <!-- <h4 class="blueHeading" id="information">Information</h4> -->
+
+            <!-- <link href="https://cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet"> -->
+
+            <div id="selected-doc-info-quill" style= "font-size: 14px" >
+              <!-- <p>Hello World!</p> -->
+            </div>
+            <!-- <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script> -->
+
+
+            <!-- <textarea class="form-control" id="doc-information" name="doc-information" cols="40" rows="5" placeholder="Enter Information..."></textarea> -->
+
+            <br/>
+
+            <br/>
+            <h3 class="blueHeading" id="Hyperlink">Link to More Info</h3>
+            <h5 id="selected-doc-hyperlink">http://</h5>
+            <!-- <input id="hyperlink"  class="form-control" type="text" placeholder="http://www.hyperlink.com" /> -->
+            <!-- <br/> -->
+
+            <!-- <textarea class="form-control field span12" id="textarea" rows="6" placeholder="Enter a short synopsis"></textarea> -->
+            <br/>
+            <!-- <a class="btn btn-primary pull-right" onclick="preAddThis()" data-dismiss="selected-modal">Submit</a> -->
+            <!-- <a class="btn btn-primary pull-right" onclick="preAddToDB()">Submit</a> -->
+            <br/>
+            <br/>
+
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dalog -->
+    </div><!-- /.modal -->
+
+
+
+
+
+    <!--                     MODAL UPDATE  -->
+    <div id="myModalUpdate" class="modal fade in">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+          <div class="modal-body">
+            <h2 class="modal-title blueHeading center" id="modal-title">Update Link</h2>
+            <h4  id="modal-category" class="center"> </h4>
+
+            <h4 class="blueHeading" id="Name">Name</h4>
+            <input id="update-link-name"  class="form-control" type="text" placeholder="Name of Link" />
+
+            <h4 class="blueHeading" id="Hyperlink">Hyperlink</h4>
+            <input id="update-hyperlink"  class="form-control" type="text" placeholder="http://www.hyperlink.com" />
+            <!-- <br/> -->
+
+            <h4 class="blueHeading" id="description">Description (Optional)</h4>
+            <textarea class="form-control" id="update-link-description" name="update-link-description" cols="40" rows="2" placeholder="Enter Description..."></textarea>
+
+            <!-- <textarea class="form-control field span12" id="textarea" rows="6" placeholder="Enter a short synopsis"></textarea> -->
+            <br/>
+            <!-- <a class="btn btn-primary pull-right" onclick="preAddThis()" data-dismiss="modal">Submit</a> -->
+            <a class="btn btn-primary pull-right" onclick="preUpdateThis()">Submit</a>
+            <br/>
+            <br/>
+
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dalog -->
+    </div><!-- /.modal -->
+
+
+
+    <!-- <a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch demo modal</a> -->
+  </div>  <!-- Row -->
+</div>  <!-- Container -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="js/search.js"></script> -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/search.js"></script>
+
+<script src="js/addToDB.js"></script>
+<script src="js/wordsToSearchableArray.js"></script>
+<script src="js/databaseMethods.js"></script>
+<script src="js/quillSetup.js"></script>
+<script src="writeToFile.js"></script>
+<script src="js/addDocsToList.js">
+
+
+</script>
+
+
+
+
+<!-- <script src="js/initialLinksFunctions.js"></script>
+<script src="js/addDataToListFunction.js"></script>
+<script src="js/updateFile.js"></script>
+
+<script src="js/indexedDBFunctions.js"></script>
+<script src="js/search.js"></script>
+<script src="js/database.js"></script> -->
+
+<!-- Main Quill library -->
+<!-- <script src="//cdn.quilljs.com/1.2.6/quill.js"></script>
+<script src="//cdn.quilljs.com/1.2.6/quill.min.js"></script> -->
+
+<!-- Theme included stylesheets -->
+<!-- <link href="//cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
+<link href="//cdn.quilljs.com/1.2.6/quill.bubble.css" rel="stylesheet"> -->
+
+<!-- Core build with no theme, formatting, non-essential modules -->
+<!-- <link href="//cdn.quilljs.com/1.2.6/quill.core.css" rel="stylesheet">
+<script src="//cdn.quilljs.com/1.2.6/quill.core.js"></script> -->
+
+</body>
