@@ -2,8 +2,7 @@ var MongoClient = require('mongodb').MongoClient,
     Hapi = require('hapi');
 var fs = require('fs');
 
-// var url = 'mongodb://boskb.qas.com:27017/DirectoryLive'; // DB we are connected to
-var url = 'mongodb://boskb.qas.com:27017/QuickDocs'; // DB we are connected to
+var url = 'mongodb://servername.com:27017/QuickDocs'; // DB we are connected to
 
 var server = new Hapi.Server();
 
